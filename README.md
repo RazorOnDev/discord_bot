@@ -1,3 +1,1 @@
-discord_bot
-By alexin_435
-Use glitch.
+discord_bot by ittsRazor for using into glitch.

@@ -1,4 +1,4 @@
-//Esto hace que el bot sirva, no tocar xd
+// Esto hace que el bot funcione, no tocar
 
 const http = require('http');
 const express = require('express');
@@ -24,9 +24,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
-//TOKEN Y ESTADO, FUNDAMENTAL QUE LO CAMBIEN
+// Pon el token de tu bot dentro del client.login para que el bot funcione. También puedes cambiar el estado del bot aquí abajo.
 
-client.login('pONE.tU.tOKEN.aCA.A4MTkw.Xfja6g.0fpbej2Gy1l9nEaGP8sZXvpN0C4');
+client.login('TOKEN DEL BOT AQUI');
 
 client.on('ready', () => {
 console.log("Conectado como " + client.user.tag )
@@ -38,13 +38,12 @@ client.user.setActivity("tus dudas, preguntame algo n.n", {type: "listening"})})
 
 
 
-//-------------------------------------------------------------------------------------------------------------------------------
-//EMPIEZE SU PROGRAMACION DESDE AQUI EN ADELANTE, YA CON ALGUNOS EJEMPLOS
+// COMANDOS - CON EJEMPLOS - //
 
 
 
 
-//hola
+// hola
 client.on('message', msg => {
   if (msg.author == client.user){return}
   if (msg.author.id == "159985870458322944"){return}
@@ -54,7 +53,7 @@ client.on('message', msg => {
   }});
 
 
-//Si contiene ejemplo1 o ejemplo2 va a contestar respuesta
+// Si contiene ejemplo1 o ejemplo2 va a contestar respuesta
 client.on('message', msg => {
   if (msg.author.bot == client.user){return}
   let message = msg.content.toLowerCase()
@@ -65,7 +64,7 @@ client.on('message', msg => {
 
 
 
-//Si contiene palabra 1 Y palabra 2 contesta
+// Si contiene palabra 1 Y palabra 2 contesta
 client.on('message', msg => {
   if (msg.author == client.user){return}
   let message = msg.content.toLowerCase()
@@ -75,7 +74,7 @@ client.on('message', msg => {
 
 
 
-//Si contiene algunas de estas palabras borra el mensaje
+// Si contiene algunas de estas palabras borra el mensaje
 client.on('message', msg => {
   if(msg.content.includes('malapalabra1')
      || msg.content.includes('malapalabra2')
@@ -85,7 +84,7 @@ client.on('message', msg => {
     ){msg.delete()
     }});
 
-//Como me llamo?
+// Como me llamo?
 client.on('message', msg => {
   if (msg.author == client.user){return}
   let message = msg.content.toLowerCase()
@@ -104,22 +103,3 @@ client.on('message', msg => {
     setTimeout(function(){msg.reply('Bien y tu? :D') ; }, Math.floor(Math.random() * 1000+550));
     msg.channel.stopTyping(true);
   }});
-
-
-
-/* 
-----Aclaraciones de codigo para el que quiera cambiar algo pero no entiende como funciona xd----
-&& significa AND
-|| significa OR 
-${msg.author} Esto etiqueta al usuario que envio el mensaje
-msg.react('😭') reacciona con tal emoji
-Esto hace que NO se cree un bucle infinito contestandose a si mismo:
- if (msg.author == client.user){return}
-Esto hace que NO conteste al bot Mee6, no es nesesario si no lo tienen en su server:
- if (msg.author.id == "159985870458322944"){return}
-Esto permite el que entienda los mensajes auNqUe EsTen EscritoS aSi(mayusculas por si no quedo claro xd):
-let message = msg.content.toLowerCase()
-Esto permite que aparezca el bot como escribiendo, cambien los numeros para cambiar el tiempo de espera:
-    setTimeout(function(){msg.reply('Hola bombon :3') ; }, Math.floor(Math.random() * 1000+550));
- LO QUE ESTA ESCRITO EN ESTE COLOR ES SOLO TEXTO, NO AFECTA AL CODIGO, SE HACE CON // O CON / Y *
-*/
